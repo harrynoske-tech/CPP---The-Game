@@ -4,9 +4,9 @@ class Theme {
 
         background: 0x111111,
 
-        surface: 0x1c1c1c,
+        surface: 0x1b1b1b,
 
-        surfaceLight: 0x2a2a2a,
+        surfaceLight: 0x2b2b2b,
 
         accent: 0xff8a00,
 
@@ -24,15 +24,21 @@ class Theme {
 
     };
 
+    static Font = {
+
+        family: "Rajdhani"
+
+    };
+
     static Fonts = {
 
         title: {
 
-            fontFamily: "Arial",
+            fontFamily: Theme.Font.family,
 
             fontSize: "64px",
 
-            fontStyle: "bold",
+            fontStyle: "700",
 
             color: "#ffffff"
 
@@ -40,11 +46,11 @@ class Theme {
 
         heading: {
 
-            fontFamily: "Arial",
+            fontFamily: Theme.Font.family,
 
             fontSize: "36px",
 
-            fontStyle: "bold",
+            fontStyle: "700",
 
             color: "#ffffff"
 
@@ -52,9 +58,11 @@ class Theme {
 
         body: {
 
-            fontFamily: "Arial",
+            fontFamily: Theme.Font.family,
 
             fontSize: "24px",
+
+            fontStyle: "600",
 
             color: "#ffffff"
 
@@ -62,7 +70,7 @@ class Theme {
 
         small: {
 
-            fontFamily: "Arial",
+            fontFamily: Theme.Font.family,
 
             fontSize: "18px",
 
