@@ -33,7 +33,10 @@ for (let i = 0; i < 10; i++) {
     civilian.targetY = Phaser.Math.Between(100, 720);
 
     this.civilians.push(civilian);
-    // Suspicious Person
+
+}
+
+            // Suspicious Person
 this.suspicious = this.add.circle(
     120,
     120,
@@ -43,8 +46,6 @@ this.suspicious = this.add.circle(
 
 this.suspiciousSpeed = 55;
 this.attackStarted = false;
-
-}
 
         // Hotel entrance (goal)
         this.goal = this.add.rectangle(
@@ -141,6 +142,51 @@ for (const civilian of this.civilians) {
         civilian.targetY = Phaser.Math.Between(100, 720);
 
     }
+
+}
+
+        // ------------------------
+// Suspicious Person AI
+// ------------------------
+
+if (!this.attackStarted) {
+
+    const suspiciousAngle = Phaser.Math.Angle.Between(
+        this.suspicious.x,
+        this.suspicious.y,
+        this.vip.x,
+        this.vip.y
+    );
+
+    const suspiciousDistance = Phaser.Math.Distance.Between(
+        this.suspicious.x,
+        this.suspicious.y,
+        this.vip.x,
+        this.vip.y
+    );
+
+    if (suspiciousDistance > 180) {
+
+        this.suspicious.x += Math.cos(suspiciousAngle) * this.suspiciousSpeed * (delta / 1000);
+        this.suspicious.y += Math.sin(suspiciousAngle) * this.suspiciousSpeed * (delta / 1000);
+
+    }
+
+    if (suspiciousDistance <= 180) {
+        this.attackStarted = true;
+    }
+
+} else {
+
+    const attackAngle = Phaser.Math.Angle.Between(
+        this.suspicious.x,
+        this.suspicious.y,
+        this.vip.x,
+        this.vip.y
+    );
+
+    this.suspicious.x += Math.cos(attackAngle) * 220 * (delta / 1000);
+    this.suspicious.y += Math.sin(attackAngle) * 220 * (delta / 1000);
 
 }
 
