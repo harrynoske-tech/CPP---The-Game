@@ -17,6 +17,24 @@ class GameScene extends Phaser.Scene {
 
         // VIP
         this.vip = this.add.circle(380, 650, 16, 0x3498db);
+        // Civilians
+this.civilians = [];
+
+for (let i = 0; i < 10; i++) {
+
+    const civilian = this.add.circle(
+        Phaser.Math.Between(120, 760),
+        Phaser.Math.Between(120, 720),
+        10,
+        0xffffff
+    );
+
+    civilian.targetX = Phaser.Math.Between(100, 760);
+    civilian.targetY = Phaser.Math.Between(100, 720);
+
+    this.civilians.push(civilian);
+
+}
 
         // Hotel entrance (goal)
         this.goal = this.add.rectangle(
