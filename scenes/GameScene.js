@@ -111,7 +111,8 @@ class GameScene extends Phaser.Scene {
         alert("VIP LOST");
 
         this.scene.restart();
-
     }
+
+}
 
 }
