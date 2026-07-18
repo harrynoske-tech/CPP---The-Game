@@ -10,6 +10,8 @@ class GameScene extends Phaser.Scene {
         const height = this.scale.height;
 
         this.cameras.main.setBackgroundColor(0x2a2a2a);
+        const map = new TrainingGround(this);
+map.build();
 
         this.player = this.add.circle(
             width / 2,
