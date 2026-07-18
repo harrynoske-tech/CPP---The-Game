@@ -11,17 +11,9 @@ class GameScene extends Phaser.Scene {
 
         this.cameras.main.setBackgroundColor(0x2a2a2a);
 
-        // Create the player
-        this.player = new Player(
-            this,
+        this.player = this.add.circle(
             width / 2,
-            height / 2
-        );
-
-        // Temporary placeholder until sprite is added
-        this.playerGraphic = this.add.circle(
-            this.player.x,
-            this.player.y,
+            height / 2,
             18,
             0x2ecc71
         );
@@ -33,24 +25,17 @@ class GameScene extends Phaser.Scene {
             right: "D"
         });
 
+        this.speed = 250;
     }
 
     update(time, delta) {
 
-        const speed = this.player.moveSpeed;
-        let vx = 0;
-        let vy = 0;
+        const distance = this.speed * (delta / 1000);
 
-        if (this.keys.left.isDown) vx = -speed;
-        if (this.keys.right.isDown) vx = speed;
-        if (this.keys.up.isDown) vy = -speed;
-        if (this.keys.down.isDown) vy = speed;
-
-        this.player.body.setVelocity(vx, vy);
-        this.player.body.velocity.normalize().scale(speed);
-
-        this.playerGraphic.x = this.player.x;
-        this.playerGraphic.y = this.player.y;
+        if (this.keys.left.isDown) this.player.x -= distance;
+        if (this.keys.right.isDown) this.player.x += distance;
+        if (this.keys.up.isDown) this.player.y -= distance;
+        if (this.keys.down.isDown) this.player.y += distance;
 
     }
 
