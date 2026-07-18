@@ -171,22 +171,54 @@ for (const civilian of this.civilians) {
             this.vip.y
         );
 
-        if (escortDistance > 220) {
+        let status = "";
+let colour = "#00ff88";
 
-            this.missionComplete = true;
+if (escortDistance < 70) {
 
-            this.add.text(
-                290,
-                40,
-                "VIP LOST",
-                {
-                    fontFamily: "Rajdhani",
-                    fontSize: "42px",
-                    color: "#ff3333"
-                }
-            );
+    status = "PROTECTION: EXCELLENT";
+    colour = "#00ff88";
 
+}
+else if (escortDistance < 120) {
+
+    status = "PROTECTION: GOOD";
+    colour = "#ffff44";
+
+}
+else if (escortDistance < 180) {
+
+    status = "PROTECTION: POOR";
+    colour = "#ff9933";
+
+}
+else {
+
+    status = "PROTECTION: CRITICAL";
+    colour = "#ff3333";
+
+}
+
+this.protectionText.setText(status);
+this.protectionText.setColor(colour);
+
+       if (escortDistance > 260) {
+
+    this.missionComplete = true;
+
+    this.add.text(
+        250,
+        80,
+        "MISSION FAILED\nVIP LOST",
+        {
+            fontFamily: "Rajdhani",
+            fontSize: "40px",
+            align: "center",
+            color: "#ff3333"
         }
+    );
+
+}
 
     }
 
