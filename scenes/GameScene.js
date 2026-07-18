@@ -191,6 +191,35 @@ if (!this.attackStarted) {
 }
 
         // ------------------------
+// Suspicious Person reaches VIP
+// ------------------------
+
+if (
+    Phaser.Math.Distance.Between(
+        this.suspicious.x,
+        this.suspicious.y,
+        this.vip.x,
+        this.vip.y
+    ) < 20
+) {
+
+    this.missionComplete = true;
+
+    this.add.text(
+        250,
+        80,
+        "MISSION FAILED\nVIP ATTACKED",
+        {
+            fontFamily: "Rajdhani",
+            fontSize: "40px",
+            color: "#ff3333",
+            align: "center"
+        }
+    );
+
+}
+
+        // ------------------------
         // Mission Complete
         // ------------------------
 
