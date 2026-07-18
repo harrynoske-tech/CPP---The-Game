@@ -46,8 +46,8 @@ this.suspicious = this.add.circle(
 
 this.suspiciousSpeed = 55;
 this.attackStarted = false;
-        this.attackerStopped = false;
-this.attackerStopTime = 0;
+this.attackerStopped = true;
+this.attackerStopTime = time;
 
         // Hotel entrance (goal)
         this.goal = this.add.rectangle(
