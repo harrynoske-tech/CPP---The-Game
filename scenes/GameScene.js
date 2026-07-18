@@ -46,8 +46,8 @@ this.suspicious = this.add.circle(
 
 this.suspiciousSpeed = 55;
 this.attackStarted = false;
-this.attackerStopped = true;
-this.attackerStopTime = time;
+this.attackerStopped = false;
+this.attackerStopTime = 0;
 
         // Hotel entrance (goal)
         this.goal = this.add.rectangle(
@@ -198,6 +198,7 @@ if (!this.attackStarted) {
 
 if (
     !this.missionComplete &&
+    !this.attackerStopped &&
     Phaser.Math.Distance.Between(
         this.player.x,
         this.player.y,
@@ -207,6 +208,8 @@ if (
 ) {
 
     this.attackStarted = false;
+    this.attackerStopped = true;
+    this.attackerStopTime = time;
     this.suspiciousSpeed = 0;
 
     this.suspicious.fillColor = 0xffff00;
