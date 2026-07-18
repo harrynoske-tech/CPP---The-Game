@@ -38,8 +38,8 @@ for (let i = 0; i < 10; i++) {
 
             // Suspicious Person
 this.suspicious = this.add.circle(
-    120,
-    120,
+    520,
+    500,
     12,
     0xff4444
 );
@@ -66,7 +66,7 @@ this.attackStarted = false;
             right: "D"
         });
 
-        this.vipSpeed = 20;
+        this.vipSpeed = 70;
 
         this.missionComplete = false;
         this.protectionText = this.add.text(
