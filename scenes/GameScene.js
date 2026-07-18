@@ -58,6 +58,18 @@ for (let i = 0; i < 10; i++) {
         this.vipSpeed = 70;
 
         this.missionComplete = false;
+        this.protectionText = this.add.text(
+    20,
+    20,
+    "",
+    {
+        fontFamily: "Rajdhani",
+        fontSize: "26px",
+        color: "#00ff88"
+    }
+);
+
+this.protectionText.setScrollFactor(0);
 
     }
 
