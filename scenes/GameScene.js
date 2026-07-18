@@ -64,11 +64,12 @@ this.attackerStopTime = 0;
         this.speed = 250;
 
         this.keys = this.input.keyboard.addKeys({
-            up: "W",
-            down: "S",
-            left: "A",
-            right: "D"
-        });
+    up: "W",
+    down: "S",
+    left: "A",
+    right: "D",
+    space: Phaser.Input.Keyboard.KeyCodes.SPACE
+});
 
         this.vipSpeed = 70;
 
@@ -90,9 +91,14 @@ this.protectionText.setScrollFactor(0);
 
     update(time, delta) {
 
-        if (this.missionComplete) {
-            return;
-        }
+       if (this.missionComplete) {
+
+    if (Phaser.Input.Keyboard.JustDown(this.keys.space)) {
+        this.scene.restart();
+    }
+
+    return;
+}
 
         // ------------------------
         // Player Movement
@@ -290,7 +296,7 @@ if (
             this.add.text(
                 250,
                 40,
-                "MISSION COMPLETE",
+                "MISSION COMPLETE\n\nPress SPACE to restart",
                 {
                     fontFamily: "Rajdhani",
                     fontSize: "42px",
