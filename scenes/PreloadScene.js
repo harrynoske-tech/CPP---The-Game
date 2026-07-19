@@ -11,6 +11,7 @@ class PreloadScene extends Phaser.Scene {
             "assets/backgrounds/hotel-arrival.png"
         );
 
+        // Bodyguard
         this.load.image(
             "bodyguard-front",
             "assets/sprites/player/bodyguard_front.png"
@@ -29,6 +30,17 @@ class PreloadScene extends Phaser.Scene {
         this.load.image(
             "bodyguard-right",
             "assets/sprites/player/bodyguard_right.png"
+        );
+
+        // Civilians
+        this.load.image(
+            "civilian-left",
+            "assets/sprites/civilians/civilian_left.png"
+        );
+
+        this.load.image(
+            "civilian-right",
+            "assets/sprites/civilians/civilian_right.png"
         );
 
     }
