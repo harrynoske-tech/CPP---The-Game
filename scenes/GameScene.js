@@ -19,7 +19,7 @@ this.player = this.add.sprite(
     "bodyguard-front"
 );
 
-this.player.setScale(0.08);
+this.player.setScale(0.12);
 
         // VIP
         this.vip = this.add.circle(380, 650, 16, 0x3498db);
