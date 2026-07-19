@@ -72,7 +72,7 @@ for (let i = 0; i < 4; i++) {
         movingRight ? "civilian-right" : "civilian-left"
     );
 
-    civilian.setScale(0.12);
+    civilian.setScale(0.08);
 
     civilian.direction = movingRight ? 1 : -1;
     civilian.minX = 120;
