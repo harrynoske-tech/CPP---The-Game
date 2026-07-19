@@ -37,24 +37,6 @@ this.cameras.main.setDeadzone(120, 80);
 
         // VIP
         this.vip = this.add.circle(380, 650, 16, 0x3498db);
-        // Civilians
-this.civilians = [];
-
-for (let i = 0; i < 4; i++) {
-
-    const civilian = this.add.circle(
-        Phaser.Math.Between(120, 760),
-        Phaser.Math.Between(120, 720),
-        10,
-        0xffffff
-    );
-
-    civilian.targetX = Phaser.Math.Between(100, 760);
-    civilian.targetY = Phaser.Math.Between(100, 720);
-
-    this.civilians.push(civilian);
-
-}
 
             // Suspicious Person
 this.suspicious = this.add.circle(
