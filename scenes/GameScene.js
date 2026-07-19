@@ -112,26 +112,37 @@ this.protectionText.setScrollFactor(0);
 
         const distance = this.speed * (delta / 1000);
 
-     if (this.keys.left.isDown) {
-    this.player.x -= distance;
+    let moveX = 0;
+let moveY = 0;
+
+if (this.keys.left.isDown) {
+    moveX = -1;
     this.player.setTexture("bodyguard-left");
 }
 
 if (this.keys.right.isDown) {
-    this.player.x += distance;
+    moveX = 1;
     this.player.setTexture("bodyguard-right");
 }
 
 if (this.keys.up.isDown) {
-    this.player.y -= distance;
+    moveY = -1;
     this.player.setTexture("bodyguard-back");
 }
 
 if (this.keys.down.isDown) {
-    this.player.y += distance;
+    moveY = 1;
     this.player.setTexture("bodyguard-front");
 }
 
+if (moveX !== 0 || moveY !== 0) {
+
+    const length = Math.sqrt(moveX * moveX + moveY * moveY);
+
+    this.player.x += (moveX / length) * distance;
+    this.player.y += (moveY / length) * distance;
+
+}
         // ------------------------
         // VIP walks toward entrance
         // ------------------------
