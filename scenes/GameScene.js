@@ -38,6 +38,32 @@ this.cameras.main.setDeadzone(120, 80);
         // VIP
         this.vip = this.add.circle(380, 650, 16, 0x3498db);
 
+        // Civilians
+this.civilians = [];
+
+const lanes = [520, 565];
+
+for (let i = 0; i < 4; i++) {
+
+    const movingRight = i % 2 === 0;
+
+    const civilian = this.add.sprite(
+        movingRight ? 120 : 900,
+        lanes[i % 2],
+        movingRight ? "civilian-right" : "civilian-left"
+    );
+
+    civilian.setScale(0.12);
+
+    civilian.direction = movingRight ? 1 : -1;
+    civilian.minX = 120;
+    civilian.maxX = 900;
+    civilian.speed = 35;
+
+    this.civilians.push(civilian);
+
+}
+
             // Suspicious Person
 this.suspicious = this.add.circle(
     520,
